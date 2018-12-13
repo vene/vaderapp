@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<body>
+<head> <title> Vader GUI </title> </head>
+<form action="/" method="POST">
+  <textarea name="textbox" style="height:200px;font-size:14pt;"></textarea>
+  <p>
+      <label>
+        <input name="split" value="line" type="radio" checked />
+        <span>One comment per line</span>
+      </label>
+  </p>
+  <p>
+      <label>
+        <input name="split" value="blank" type="radio" />
+        <span>Comments separated by two lines</span>
+      </label>
+  </p>
+  <p>
+    <button type="submit" name="submit">Submit</button>
+  </p>
+</form>
+
+{% if sents %}
+<h1>Results</h1>
+<ul>
+{% for sent  in sents %}
+<li> 
+  <p>{{ sent.text }}</p>
+  <p>{{ sent.scores }}</p>
+
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+</body>
+
+</html>
